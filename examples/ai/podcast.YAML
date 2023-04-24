@@ -1,0 +1,30 @@
+# Podcast Interview Conversation Configuration
+podcast:
+  info:
+    title: Inteligencia Artificial para Cerebros Naturales
+    description: Un programa donde conversamos sobre el futuro de la inteligencia artificial y sus implicaciones en la sociedad
+  host:
+    name: Alonso Astroza
+  guest:
+    name: Alfonso Astorga
+  topics:
+    main: Artificial Intelligence
+    sub:
+      - ChatGPT
+      - Generative AI
+      - AGI
+  output:
+    duration: 3
+    language: spanish
+  target_audience:
+    age_segment: 18-35
+    interests:
+      - AI Research
+      - AI Applications
+      - AI Ethics
+      - AI in Everyday Life
+    occupation:
+      - Researchers
+      - Students
+      - Industry Professionals
+      - Tech Enthusiasts

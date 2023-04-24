@@ -1,0 +1,5 @@
+marvin
+python-dotenv
+TTS
+ipykernel
+pydub

@@ -1,0 +1,21 @@
+# Podcast Interview Conversation Configuration
+podcast:
+  info:
+    title: Todos los gatitos se van al cielo
+    description: Un programa donde conversamos sobre gatitos y las divinidades egipcias
+  host:
+    name: Alfonso Astorga
+    voice: es-AR-TomasNeural
+  guest:
+    name: Alicia Cats
+    voice: es-MX-BeatrizNeural
+  topics:
+    main: Cats and Egyptian Gods
+    sub:
+      - Cats in Egypt
+      - Stories about Cats and Egyptian Gods
+      - Why cats are so divine
+  output:
+    duration: 5 #Episode length in minutes
+    language: spanish
+    folder: examples/cats/
