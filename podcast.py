@@ -1,16 +1,16 @@
-from src.chat import ChatBot, getAudio
+from src.chat import ChatBot
+from src.audio import merge_audio_files, getAudio
+from src.utils import calculate_number_words
 import yaml
 import sys
 import json
 import uuid
+import os
 from datetime import datetime
 from dotenv import load_dotenv
-import requests
-from pydub import AudioSegment
-import io
 
 load_dotenv()
-
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 yaml_file = sys.argv[1]
 
@@ -47,39 +47,12 @@ GUEST_INSTRUCTIONS_PROMPT = """ Entertain the user by portraying an over-the-top
                             Always respond in {podcast_language}.
                         """
 
-def calculate_number_words(text: str) -> int:
-    """Calculate number of words of string."""
-    return len(text.split())
-
-def download_audio(url):
-    response = requests.get(url)
-    if response.status_code == 200:
-        return response.content
-    else:
-        print(f"Failed to download {url}")
-        return None
-
-def merge_audio_files(urls, output_file):
-    merged_audio = AudioSegment.empty()
-    
-    for url in urls:
-        audio_data = download_audio(url)
-        if audio_data is not None:
-            audio = AudioSegment.from_file(io.BytesIO(audio_data), format="mp3")
-            merged_audio += audio
-        else:
-            print(f"Skipping {url}")
-    
-    merged_audio.export(output_file, format="mp3", bitrate="48k")
-    print(f"Merged audio saved to {output_file}")
-
 with open(yaml_file) as file:
     podcast = yaml.load(file, Loader=yaml.FullLoader)['podcast']
     podcast_title = podcast['info']['title']
     podcast_topic = podcast['topics']['main']
     podcast_subtopics = podcast['topics']['sub']
     podcast_language = podcast['output']['language']
-    #print(podcast)
 
     host = ChatBot(
         name = podcast['host']['name'],
@@ -120,22 +93,22 @@ with open(yaml_file) as file:
     with open(random_file_name+".json", "w") as file:
         json.dump(conversation, file, indent=2)
 
-    # print("Generating transcriptions...")
-    # transcriptions = []
-    # for message in conversation:
-    #     if message['speaker'] == "Host":
-    #         transcriptions.append(host.speak(message['message']))
-    #     else:
-    #         transcriptions.append(guest.speak(message['message']))
-    
-    # print("Generating audio...")
-    # audios = []
-    # for i, transcript in enumerate(transcriptions):
-    #     print("Generating audio for message " + str(i+1))
-    #     audios.append(getAudio(transcript))
+    if podcast['output']['audio']:
+        print("Generating transcriptions...")
+        transcriptions = []
+        for message in conversation:
+            if message['speaker'] == "Host":
+                transcriptions.append(host.speak(message['message']))
+            else:
+                transcriptions.append(guest.speak(message['message']))
+        
+        print("Generating audio...")
+        audios = []
+        for i, transcript in enumerate(transcriptions):
+            print("Generating audio for message " + str(i+1))
+            audios.append(getAudio(transcript))
 
-    # output_file = random_file_name+".mp3"
-    # merge_audio_files(audios, output_file)
-    print("Done!")
+        output_file = random_file_name+".mp3"
+        merge_audio_files(audios, output_file)
 
-    
+    print("Done!")   

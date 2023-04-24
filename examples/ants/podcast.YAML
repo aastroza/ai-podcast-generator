@@ -20,4 +20,5 @@ podcast:
   output:
     duration: 5 #Episode length in minutes
     language: spanish
+    audio: True #Set to False if you want to generate only the script
     folder: examples/ants/

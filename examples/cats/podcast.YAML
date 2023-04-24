@@ -10,12 +10,13 @@ podcast:
     name: Alicia Cats
     voice: es-MX-BeatrizNeural
   topics:
-    main: Cats and Egyptian Gods
+    main: Gatos y Dioses Egipcios
     sub:
-      - Cats in Egypt
-      - Stories about Cats and Egyptian Gods
-      - Why cats are so divine
+      - Los Gatos en el Antiguo Egipto
+      - Historias acerca de Gatos y Dioses Egipcios
+      - ¿Por qué los gatos eran considerados divinos?
   output:
     duration: 5 #Episode length in minutes
     language: spanish
+    audio: True #Set to False if you want to generate only the script
     folder: examples/cats/

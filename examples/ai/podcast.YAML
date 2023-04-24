@@ -5,26 +5,18 @@ podcast:
     description: Un programa donde conversamos sobre el futuro de la inteligencia artificial y sus implicaciones en la sociedad
   host:
     name: Alonso Astroza
+    voice:
   guest:
     name: Alfonso Astorga
+    voice: 
   topics:
-    main: Artificial Intelligence
+    main: Inteligencia Artificial
     sub:
       - ChatGPT
-      - Generative AI
+      - AI Generativa
       - AGI
   output:
-    duration: 3
+    duration: 5 #Episode length in minutes
     language: spanish
-  target_audience:
-    age_segment: 18-35
-    interests:
-      - AI Research
-      - AI Applications
-      - AI Ethics
-      - AI in Everyday Life
-    occupation:
-      - Researchers
-      - Students
-      - Industry Professionals
-      - Tech Enthusiasts
+    audio: True #Set to False if you want to generate only the script
+    folder: examples/ai/
