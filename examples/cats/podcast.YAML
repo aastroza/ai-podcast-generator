@@ -1,4 +1,4 @@
-# Podcast Interview Conversation Configuration
+# Podcast Interview Configuration
 podcast:
   info:
     title: Todos los gatitos se van al cielo
@@ -18,5 +18,5 @@ podcast:
   output:
     duration: 5 #Episode length in minutes
     language: spanish
-    audio: True #Set to False if you want to generate only the script
+    audio: True #Set to False if you want to generate only the text script
     folder: examples/cats/

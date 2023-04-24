@@ -1,22 +1,23 @@
-# Podcast Interview Conversation Configuration
+# Podcast Interview Configuration
 podcast:
   info:
-    title: Inteligencia Artificial para Cerebros Naturales
-    description: Un programa donde conversamos sobre el futuro de la inteligencia artificial y sus implicaciones en la sociedad
+    title: Artificial Intelligence for Natural Brains
+    description: A podcast where we talk about the future of AI and how it will affect our lives
   host:
-    name: Alonso Astroza
-    voice:
+    name: Brandon Bert
+    voice: en-US-BrandonNeural
   guest:
-    name: Alfonso Astorga
-    voice: 
+    name: Monica Gradient
+    voice: en-US-MonicaNeural
   topics:
-    main: Inteligencia Artificial
+    main: Artificial Intelligence
     sub:
       - ChatGPT
-      - AI Generativa
+      - Generative AI
       - AGI
+      - AI Ethics
   output:
     duration: 5 #Episode length in minutes
-    language: spanish
-    audio: True #Set to False if you want to generate only the script
+    language: english
+    audio: True #Set to False if you want to generate only the text script
     folder: examples/ai/

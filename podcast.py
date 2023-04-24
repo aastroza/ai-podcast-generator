@@ -2,17 +2,21 @@ from src.chat import ChatBot
 from src.audio import merge_audio_files, getAudio
 from src.utils import calculate_number_words
 import yaml
-import sys
 import json
 import uuid
 import os
 from datetime import datetime
 from dotenv import load_dotenv
+import argparse
+import textwrap
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
-yaml_file = sys.argv[1]
+parser = argparse.ArgumentParser()
+parser.add_argument('--input', type=str, required=True)
+args = parser.parse_args()
+yaml_file = args.input
 
 HOST_PERSONALITY_PROMPT = """ Your a podcast host of a conversational podcast named {podcast_title}. You're a bit of a nerd,
                             but you're also very friendly and approachable. You're very interested in
@@ -47,9 +51,21 @@ GUEST_INSTRUCTIONS_PROMPT = """ Entertain the user by portraying an over-the-top
                             Always respond in {podcast_language}.
                         """
 
+KICKOFF_PROMPT = """ Start the conversation repeating something like this:
+                    ¡Hello! Welcome to the podcast '{podcast_title}', '{podcast_description}'. 
+                    My name is '{podcast_host_name}' and today we're going to talk about {podcast_topic}. 
+                    To discuss this topic, we have an expert on the subject.
+                    What is your name and what do you do?
+                """
+
+WORDS_PER_MINUTE = 150
+
 with open(yaml_file) as file:
     podcast = yaml.load(file, Loader=yaml.FullLoader)['podcast']
     podcast_title = podcast['info']['title']
+    podcast_description = podcast['info']['description']
+    podcast_host_name = podcast['host']['name']
+    podcast_guest_name = podcast['guest']['name']
     podcast_topic = podcast['topics']['main']
     podcast_subtopics = podcast['topics']['sub']
     podcast_language = podcast['output']['language']
@@ -68,14 +84,13 @@ with open(yaml_file) as file:
         voice = podcast['guest']['voice']
     )
 
-    WORDS_LIMIT = int(podcast['output']['duration'])*150
-    conversation = []
-
-    message = f"¡Hola! Bienvenidos y bienvenidas al podcast '{podcast_title}', {podcast['info']['description']}.  Mi nombre es {podcast['host']['name']} y hoy conversaremos sobre {podcast_topic}. Para conversar sobre ello tenemos a un experto en el tema. ¿Cómo te llamas y a que te dedicas?"
-    
+    WORDS_LIMIT = int(podcast['output']['duration'])*WORDS_PER_MINUTE
 
     current_date = datetime.today().strftime('%Y-%m-%d')
     random_file_name = podcast['output']['folder'] + current_date + "_" + str(uuid.uuid4())
+
+    conversation = []
+    message = host.chat(KICKOFF_PROMPT.format(podcast_title = podcast_title, podcast_description = podcast_description, podcast_host_name = podcast_host_name, podcast_topic = podcast_topic))
     conversation.append({"speaker": "Host", "message": message})
     words_count = calculate_number_words(message)
     
@@ -89,9 +104,27 @@ with open(yaml_file) as file:
         conversation.append({"speaker": "Host", "message": message})
         words_count += calculate_number_words(message)
     
-    print("Writing script to file...")
+    print("Writing script to json file...")
     with open(random_file_name+".json", "w") as file:
         json.dump(conversation, file, indent=2)
+
+    print("Writing script to text file...")
+    with open(random_file_name+".txt", "w") as file:
+        wrapper = textwrap.TextWrapper(width=80)
+
+        file.write(f"{current_date}\n")
+        file.write(f"{podcast_title.upper()}\n")
+        file.write(f"{podcast_topic.upper()}\n\n\n")
+        for line in conversation:
+            dedented_text = textwrap.dedent(text=line['message'])
+            original_message = wrapper.fill(text=dedented_text)
+            if line['speaker'] == "Host":
+                dedented_text = textwrap.dedent(text=line['message'])
+                original = wrapper.fill(text=dedented_text)
+                file.write(f"{podcast_host_name.upper()} ({line['speaker'].upper()}): {original_message}\n\n")
+            else:
+                file.write(f"{podcast_guest_name.upper()} ({line['speaker'].upper()}): {original_message}\n\n")
+        file.close()
 
     if podcast['output']['audio']:
         print("Generating transcriptions...")
