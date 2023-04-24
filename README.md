@@ -1,4 +1,4 @@
-# Ai-Podcast-Generator
+# AI-Podcast-Generator
 
 AI Podcast Generator is a AI powered software that automatically generates podcast scripts and audio from text files. This tool leverages [Marvin](https://github.com/PrefectHQ/marvin) for text generation and [Play.ht API](https://docs.play.ht/reference/api-getting-started) for text-to-speech conversion. The generated audio clips are then merged using [pydub}(https://github.com/jiaaro/pydub) to create the final podcast output.
 
