@@ -11,6 +11,8 @@ AI Podcast Generator is a AI powered software that automatically generates podca
 
 ## Examples
 
+[**Soundcloud Playlist 📻**](https://soundcloud.com/aastroza/sets/ai-podcast-generator?si=b10c28990e5f424eae907075448ddaf8&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing)
+
 ### Artificial Intelligence for Natural Brains
 [This Audio](https://github.com/aastroza/ai-podcast-generator/raw/main/examples/ai/2023-04-24_e8548d33-47b0-493e-9326-b95d618af463.mp3) was generated based on this YAML text file.
 
@@ -141,7 +143,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. Create a YAML configuration file for your podcast (e.g., `podcast.YAML`).
+1. Create a YAML configuration file for your podcast (e.g., [`podcast.YAML`](examples/ai/podcast.YAML)).
 2. Set up the environment variables by creating a `.env` file and adding the required API keys.
 3. Run the script to generate the podcast:
 
