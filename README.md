@@ -1,6 +1,6 @@
-# Podcast Automation
+# Ai-Podcast-Generator
 
-Podcast Automation is a AI powered software that automatically generates podcast scripts and audio from text files. This tool leverages [Marvin](https://github.com/PrefectHQ/marvin) for text generation and [Play.ht API](https://docs.play.ht/reference/api-getting-started) for text-to-speech conversion. The generated audio clips are then merged using pydub to create the final podcast output.
+AI Podcast Generator is a AI powered software that automatically generates podcast scripts and audio from text files. This tool leverages [Marvin](https://github.com/PrefectHQ/marvin) for text generation and [Play.ht API](https://docs.play.ht/reference/api-getting-started) for text-to-speech conversion. The generated audio clips are then merged using pydub to create the final podcast output.
 
 ## Features
 
@@ -12,7 +12,7 @@ Podcast Automation is a AI powered software that automatically generates podcast
 ## Examples
 
 ### Artificial Intelligence for Natural Brains
-[This Audio](https://github.com/aastroza/podcast-automation/raw/main/examples/ai/2023-04-24_e8548d33-47b0-493e-9326-b95d618af463.mp3) was generated based on this YAML text file.
+[This Audio](https://github.com/aastroza/ai-podcast-generator/raw/main/examples/ai/2023-04-24_e8548d33-47b0-493e-9326-b95d618af463.mp3) was generated based on this YAML text file.
 
 ```yaml
 # Podcast Interview Configuration
@@ -42,7 +42,7 @@ podcast:
 
 
 ### Cats and Egyptians Gods (Spanish)
-[This Audio](https://github.com/aastroza/podcast-automation/raw/main/examples/cats/2023-04-24_f08752be-a652-4df7-9e12-591dee1da6ad.mp3) was generated based on this YAML text file.
+[This Audio](https://github.com/aastroza/ai-podcast-generator/raw/main/examples/cats/2023-04-24_f08752be-a652-4df7-9e12-591dee1da6ad.mp3) was generated based on this YAML text file.
 
 ```yaml
 # Podcast Interview Configuration
@@ -70,7 +70,7 @@ podcast:
 ```
 
 ### Can ants be standup comedians? (Spanish)
-[This Audio](https://github.com/aastroza/podcast-automation/raw/main/examples/ants/2023-04-24_6985971b-9a53-4f11-bc86-8cc9dfe26bec.mp3) was generated based on this YAML text file.
+[This Audio](https://github.com/aastroza/ai-podcast-generator/raw/main/examples/ants/2023-04-24_6985971b-9a53-4f11-bc86-8cc9dfe26bec.mp3) was generated based on this YAML text file.
 
 ```yaml
 # Podcast Interview Configuration
