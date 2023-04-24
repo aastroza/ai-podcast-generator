@@ -9,6 +9,96 @@ Podcast Automation is a AI powered software that automatically generates podcast
 - Supports multiple voices from Play.ht API.
 - Requires minimal setup and configuration.
 
+## Examples
+
+### Artificial Intelligence for Natural Brains
+[This Audio](https://github.com/aastroza/podcast-automation/raw/main/examples/ai/2023-04-24_e8548d33-47b0-493e-9326-b95d618af463.mp3) was generated based on this YAML text file.
+
+```yaml
+# Podcast Interview Configuration
+podcast:
+  info:
+    title: Artificial Intelligence for Natural Brains
+    description: A podcast where we talk about the future of AI and how it will affect our lives
+  host:
+    name: Brandon Bert
+    voice: en-US-BrandonNeural #A value from data/voices.json
+  guest:
+    name: Monica Gradient
+    voice: en-US-MonicaNeural #A value from data/voices.json
+  topics:
+    main: Artificial Intelligence
+    sub:
+      - ChatGPT
+      - Generative AI
+      - AGI
+      - AI Ethics
+  output:
+    duration: 5 #Episode length in minutes
+    language: english
+    audio: True #Set to False if you want to generate only the text script
+    folder: examples/ai/
+```
+
+
+### Cats and Egyptians Gods (Spanish)
+[This Audio](https://github.com/aastroza/podcast-automation/raw/main/examples/cats/2023-04-24_f08752be-a652-4df7-9e12-591dee1da6ad.mp3) was generated based on this YAML text file.
+
+```yaml
+# Podcast Interview Configuration
+podcast:
+  info:
+    title: Todos los gatitos se van al cielo
+    description: Un programa donde conversamos sobre gatitos y las divinidades egipcias
+  host:
+    name: Alfonso Astorga
+    voice: es-AR-TomasNeural #A value from data/voices.json
+  guest:
+    name: Alicia Cats
+    voice: es-MX-BeatrizNeural #A value from data/voices.json
+  topics:
+    main: Gatos y Dioses Egipcios
+    sub:
+      - Los Gatos en el Antiguo Egipto
+      - Historias acerca de Gatos y Dioses Egipcios
+      - ¿Por qué los gatos eran considerados divinos?
+  output:
+    duration: 5 #Episode length in minutes
+    language: spanish
+    audio: True #Set to False if you want to generate only the text script
+    folder: examples/cats/
+```
+
+### Can ants be standup comedians? (Spanish)
+[This Audio](https://github.com/aastroza/podcast-automation/raw/main/examples/ants/2023-04-24_6985971b-9a53-4f11-bc86-8cc9dfe26bec.mp3) was generated based on this YAML text file.
+
+```yaml
+# Podcast Interview Configuration
+podcast:
+  info:
+    title: Los que reímos al último
+    description: Un programa donde conversamos sobre la comedia, el humor y los que les gusta terminar el día con una sonrisa
+  host:
+    name: Alfonso Astorga
+    voice: es-US-AlonsoNeural #A value from data/voices.json
+  guest:
+    name: Penelope Antenas
+    voice: es-CO-SalomeNeural #A value from data/voices.json
+  topics:
+    main: Las hormigas y la comedia
+    sub:
+      - ¿Pueden hablar las hormigas?
+      - ¿Pueden las hormigas hacer comedia?
+      - ¿Sobre que se ríen las hormigas?
+      - Cuentanos un chiste clásico que hagan las hormigas.
+      - Nombre un comediante hormiga famoso.
+  output:
+    duration: 5 #Episode length in minutes
+    language: spanish
+    audio: True #Set to False if you want to generate only the text script
+    folder: examples/ants/
+```
+
 ## Installation
 
 1. Clone this repository:
