@@ -5,10 +5,10 @@ podcast:
     description: A podcast where we talk about the future of AI and how it will affect our lives
   host:
     name: Brandon Bert
-    voice: en-US-BrandonNeural
+    voice: en-US-BrandonNeural #A value from data/voices.json
   guest:
     name: Monica Gradient
-    voice: en-US-MonicaNeural
+    voice: en-US-MonicaNeural #A value from data/voices.json
   topics:
     main: Artificial Intelligence
     sub:

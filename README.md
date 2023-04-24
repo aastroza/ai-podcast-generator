@@ -1,6 +1,6 @@
 # Podcast Automation
 
-Podcast Automation is a AI powered software that automatically generates podcast scripts and audio from text files. This tool leverages Marvin chatbot library for text generation and Play.ht API for text-to-speech conversion. The generated audio clips are then merged using pydub to create the final podcast output.
+Podcast Automation is a AI powered software that automatically generates podcast scripts and audio from text files. This tool leverages [Marvin](https://github.com/PrefectHQ/marvin) for text generation and [Play.ht API](https://docs.play.ht/reference/api-getting-started) for text-to-speech conversion. The generated audio clips are then merged using pydub to create the final podcast output.
 
 ## Features
 
@@ -73,10 +73,10 @@ podcast:
     description: A podcast where we talk about the future of AI and how it will affect our lives
   host:
     name: Brandon Bert
-    voice: en-US-BrandonNeural
+    voice: en-US-BrandonNeural #A value from data/voices.json
   guest:
     name: Monica Gradient
-    voice: en-US-MonicaNeural
+    voice: en-US-MonicaNeural #A value from data/voices.json
   topics:
     main: Artificial Intelligence
     sub:
@@ -102,7 +102,8 @@ To obtain a **Play.HT API access**, follow [these instructions](https://docs.pla
 
 ## Environment Variables
 
-Create a `.env` file in the project directory and add the following API keys:
+1. Rename `.env.example` fileto `.env` in the project directory:
+2. Open the `.env` file and replace the placeholder values with your actual API keys:
 
 ```
 OPENAI_API_KEY='your_openai_api_key'
@@ -110,7 +111,7 @@ PLAYHT_SECRET='your_playht_secret_key'
 PLAYHT_USER_ID='your_playht_user_id'
 ```
 
-Replace `your_openai_api_key`, `your_playht_secret_key`, and `your_playht_user_id` with your actual API keys.
+Make sure to save the changes to the `.env` file.
 
 ## License
 
