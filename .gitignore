@@ -160,5 +160,4 @@ cython_debug/
 #.idea/
 
 #Data and notebooks folder
-data/
-notebooks/
+data/respaldo
