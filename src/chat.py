@@ -11,6 +11,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+TTS_PROVIDER = os.getenv("TTS_PROVIDER", "playht")
+
 class ChatBot:
     """
     A ChatBot class that allows for text-based chatting and conversion of text responses to audio.
@@ -40,5 +42,9 @@ class ChatBot:
         return self.image
 
     def speak(self, text):
+        if TTS_PROVIDER == "cambai":
+            from src.audio_cambai import convertText2Audio_cambai
+            audio_bytes = convertText2Audio_cambai(text, self.voice)
+            return audio_bytes
         transcription_id = convertText2Audio(text, self.voice)
         return transcription_id
