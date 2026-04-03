@@ -3,3 +3,4 @@ python-dotenv
 TTS
 ipykernel
 pydub
+camb-sdk
