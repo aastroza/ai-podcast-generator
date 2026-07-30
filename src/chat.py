@@ -1,4 +1,4 @@
-from marvin import Bot
+from marvin import ChatBot as Bot
 from src.audio import convertText2Audio
 import os
 import sys
